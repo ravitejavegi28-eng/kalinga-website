@@ -15,7 +15,7 @@ Deploy this repo as a static site on Vercel.
 The booking form currently sends production requests to:
 
 ```text
-https://kalinga-backend.vercel.app/api/bookings
+https://kalinga-backend-ravitejavegi28-engs-projects.vercel.app/api/bookings
 ```
 
 If your backend Vercel URL is different, update `PRODUCTION_API_BASE_URL` near the bottom of `index.html`.
