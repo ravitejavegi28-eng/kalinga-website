@@ -871,6 +871,42 @@
             display: flex;
             flex-direction: column;
             gap: 16px;
+            background: #FFFFFF;
+            border: 1px solid #E8DCD4;
+            border-top: 4px solid #8B6F47;
+            padding: 30px;
+            box-shadow: 0 16px 36px rgba(44, 24, 16, 0.12);
+        }
+
+        .form-header {
+            padding-bottom: 4px;
+        }
+
+        .form-kicker {
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #F5F0EB;
+            color: #8B6F47;
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .form-header h3 {
+            margin-top: 10px;
+            color: #2C1810;
+            font-size: 1.65rem;
+        }
+
+        .form-header p {
+            margin-top: 6px;
+            color: #6B5B4F;
+            font-size: 0.92rem;
+            line-height: 1.6;
         }
 
         .form-group {
@@ -925,6 +961,44 @@
             margin-top: 8px;
         }
 
+        .contact-form .btn-primary:disabled {
+            opacity: 0.75;
+            cursor: wait;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .form-note {
+            color: #8B7355;
+            font-size: 0.82rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .form-status {
+            display: none;
+            padding: 14px 16px;
+            border-left: 4px solid #8B6F47;
+            background: #F5F0EB;
+            color: #2C1810;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .form-status.success {
+            display: block;
+            border-left-color: #2E7D32;
+            background: #EDF7EE;
+            color: #1B5E20;
+        }
+
+        .form-status.error {
+            display: block;
+            border-left-color: #C62828;
+            background: #FDECEC;
+            color: #8B1A1A;
+        }
+
         @media (max-width: 768px) {
             .contact-content {
                 grid-template-columns: 1fr;
@@ -933,6 +1007,14 @@
 
             .form-group-row {
                 grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 22px;
+            }
+
+            .form-header h3 {
+                font-size: 1.4rem;
             }
         }
 
@@ -1511,6 +1593,12 @@
                 </div>
 
                 <form class="contact-form" id="contactForm">
+                    <div class="form-header">
+                        <span class="form-kicker">Table Reservation</span>
+                        <h3>Reserve Your Table</h3>
+                        <p>Send your preferred date and time. Our team will call you to confirm your booking.</p>
+                    </div>
+
                     <div class="form-group">
                         <label for="name">Your Name *</label>
                         <input type="text" id="name" name="name" required>
@@ -1551,7 +1639,10 @@
                         <textarea id="message" name="message" placeholder="e.g., Window seating, celebration, dietary preferences..."></textarea>
                     </div>
 
+                    <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+
                     <button type="submit" class="btn btn-primary">Send Reservation Request</button>
+                    <p class="form-note">For urgent bookings, call 089852 22336.</p>
                 </form>
             </div>
         </div>
@@ -1624,13 +1715,25 @@
         });
 
         const LOCAL_API_BASE_URL = 'http://localhost:3000';
-        const PRODUCTION_API_BASE_URL = 'https://kalinga-backend-ravitejavegi28-engs-projects.vercel.app';
+        const PRODUCTION_API_BASE_URL = 'https://kalinga-backend-ten.vercel.app';
         const API_BASE_URL = (
             window.KALINGA_API_BASE_URL ||
             (['localhost', '127.0.0.1'].includes(window.location.hostname)
                 ? LOCAL_API_BASE_URL
                 : PRODUCTION_API_BASE_URL)
         ).replace(/\/$/, '');
+
+        const formStatus = document.getElementById('formStatus');
+
+        function showFormStatus(type, message) {
+            formStatus.textContent = message;
+            formStatus.className = `form-status ${type}`;
+        }
+
+        function clearFormStatus() {
+            formStatus.textContent = '';
+            formStatus.className = 'form-status';
+        }
 
         // Form submission - Send to backend
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
@@ -1642,6 +1745,7 @@
             
             try {
                 // Show loading state
+                clearFormStatus();
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Sending...';
                 
@@ -1669,14 +1773,14 @@
                 }
                 
                 if (data.success) {
-                    alert('Thank you for your reservation request! We will contact you shortly at ' + formData.phone + '.\n\nBooking ID: #' + data.bookingId);
+                    showFormStatus('success', 'Thank you for your reservation request. We will contact you shortly at ' + formData.phone + '. Booking ID: #' + data.bookingId);
                     form.reset();
                 } else {
-                    alert(data.error || 'Failed to submit booking. Please try again.');
+                    showFormStatus('error', data.error || 'Failed to submit booking. Please try again.');
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert(error.message || 'Error submitting booking. Please call us directly to reserve your table.');
+                showFormStatus('error', error.message || 'Error submitting booking. Please call us directly to reserve your table.');
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalBtnText;
