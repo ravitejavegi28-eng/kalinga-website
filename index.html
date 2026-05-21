@@ -1754,10 +1754,7 @@
                 
                 const response = await fetch(`${API_BASE_URL}/api/bookings`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
+                    body: new URLSearchParams(formData)
                 });
                 
                 const data = await response.json().catch(() => ({}));
