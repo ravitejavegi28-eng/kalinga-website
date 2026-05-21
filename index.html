@@ -1729,6 +1729,80 @@
             formStatus.className = 'form-status';
         }
 
+        async function sendBookingRequest(formData) {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/bookings`, {
+                    method: 'POST',
+                    body: new URLSearchParams(formData)
+                });
+
+                const data = await response.json().catch(() => ({}));
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Failed to submit booking. Please try again.');
+                }
+
+                return {
+                    bookingId: data.bookingId,
+                    fallback: false,
+                    success: Boolean(data.success)
+                };
+            } catch (error) {
+                if (!(error instanceof TypeError)) {
+                    throw error;
+                }
+
+                await sendBookingWithFormFallback(formData);
+                return {
+                    fallback: true,
+                    success: true
+                };
+            }
+        }
+
+        function sendBookingWithFormFallback(formData) {
+            return new Promise((resolve) => {
+                const frameName = `bookingFrame${Date.now()}`;
+                const iframe = document.createElement('iframe');
+                iframe.name = frameName;
+                iframe.style.display = 'none';
+
+                const fallbackForm = document.createElement('form');
+                fallbackForm.method = 'POST';
+                fallbackForm.action = `${API_BASE_URL}/api/bookings`;
+                fallbackForm.target = frameName;
+                fallbackForm.style.display = 'none';
+
+                Object.entries(formData).forEach(([name, value]) => {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = name;
+                    input.value = value;
+                    fallbackForm.appendChild(input);
+                });
+
+                const cleanup = () => {
+                    setTimeout(() => {
+                        iframe.remove();
+                        fallbackForm.remove();
+                    }, 500);
+                };
+
+                iframe.addEventListener('load', () => {
+                    cleanup();
+                    resolve();
+                }, { once: true });
+
+                document.body.appendChild(iframe);
+                document.body.appendChild(fallbackForm);
+                fallbackForm.submit();
+                setTimeout(() => {
+                    cleanup();
+                    resolve();
+                }, 3000);
+            });
+        }
+
         // Form submission - Send to backend
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -1751,20 +1825,12 @@
                     guests: document.getElementById('guests').value,
                     message: document.getElementById('message').value
                 };
-                
-                const response = await fetch(`${API_BASE_URL}/api/bookings`, {
-                    method: 'POST',
-                    body: new URLSearchParams(formData)
-                });
-                
-                const data = await response.json().catch(() => ({}));
 
-                if (!response.ok) {
-                    throw new Error(data.error || 'Failed to submit booking. Please try again.');
-                }
+                const data = await sendBookingRequest(formData);
                 
                 if (data.success) {
-                    showFormStatus('success', 'Thank you for your reservation request. We will contact you shortly at ' + formData.phone + '. Booking ID: #' + data.bookingId);
+                    const bookingText = data.bookingId ? ' Booking ID: #' + data.bookingId : '';
+                    showFormStatus('success', 'Thank you for your reservation request. We will contact you shortly at ' + formData.phone + '.' + bookingText);
                     form.reset();
                 } else {
                     showFormStatus('error', data.error || 'Failed to submit booking. Please try again.');
