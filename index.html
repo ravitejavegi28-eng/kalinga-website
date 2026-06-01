@@ -180,6 +180,49 @@
             color: #2C1810;
         }
 
+        @media (max-width: 768px) {
+            .navbar-container {
+                flex-wrap: wrap;
+                align-items: flex-start;
+            }
+
+            .menu-toggle {
+                margin-left: auto;
+                padding: 6px 0 6px 12px;
+                line-height: 1;
+            }
+
+            .navbar-menu {
+                width: 100%;
+                flex-basis: 100%;
+                flex-direction: column;
+                gap: 0;
+                margin-top: 14px;
+                padding: 8px 0 0;
+                border-top: 1px solid #E8DCD4;
+            }
+
+            .navbar-menu.is-open {
+                display: flex;
+            }
+
+            .navbar-menu li {
+                width: 100%;
+            }
+
+            .navbar-menu a {
+                display: block;
+                width: 100%;
+                padding: 14px 4px;
+                font-size: 1rem;
+                border-bottom: 1px solid #F1E7DF;
+            }
+
+            .navbar-menu li:last-child a {
+                border-bottom: none;
+            }
+        }
+
         @media (min-width: 769px) {
             .navbar-menu {
                 display: flex;
@@ -1243,7 +1286,7 @@
     <nav>
         <div class="navbar-container">
             <div class="navbar-logo">Kalinga</div>
-            <button class="menu-toggle" id="menuToggle">☰</button>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-controls="navMenu" aria-expanded="false" aria-label="Open menu">☰</button>
             <ul class="navbar-menu" id="navMenu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#menu">Menu</a></li>
@@ -1781,13 +1824,15 @@
         const navMenu = document.getElementById('navMenu');
 
         menuToggle.addEventListener('click', () => {
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            const isOpen = navMenu.classList.toggle('is-open');
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
         });
 
         // Close menu when link is clicked
         document.querySelectorAll('.navbar-menu a').forEach(link => {
             link.addEventListener('click', () => {
-                navMenu.style.display = 'none';
+                navMenu.classList.remove('is-open');
+                menuToggle.setAttribute('aria-expanded', 'false');
             });
         });
 
