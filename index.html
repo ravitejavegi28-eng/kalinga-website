@@ -17,8 +17,8 @@
     <meta property="og:description" content="Reserve your table at Kalinga Kitchen & Bar for biryani, Indian, Andhra, Chinese, mocktails and family dining in Rajamahendravaram.">
     <meta property="og:url" content="https://kalinga-website-eight.vercel.app/">
     <meta property="og:image" content="https://kalinga-website-eight.vercel.app/images/hero-food.jpg">
-    <meta property="og:image:width" content="2596">
-    <meta property="og:image:height" content="1346">
+    <meta property="og:image:width" content="1800">
+    <meta property="og:image:height" content="933">
     <meta property="og:image:alt" content="Premium Indian dining spread at Kalinga Kitchen and Bar">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Kalinga Kitchen & Bar | Restaurant in Rajamahendravaram">
@@ -91,7 +91,8 @@
         }
     }
     </script>
-    <link rel="preload" as="image" href="images/hero-food.jpg">
+    <link rel="preload" as="image" href="images/hero-food.jpg" media="(min-width: 769px)">
+    <link rel="preload" as="image" href="images/hero-food-mobile.jpg" media="(max-width: 768px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -462,7 +463,9 @@
             .hero {
                 min-height: 560px;
                 padding: 72px 20px 56px;
-                background-position: center;
+                background:
+                    linear-gradient(90deg, rgba(26, 15, 8, 0.9) 0%, rgba(44, 24, 16, 0.72) 54%, rgba(44, 24, 16, 0.34) 100%),
+                    url('images/hero-food-mobile.jpg') center/cover;
             }
 
             .hero-ctas {
@@ -1328,7 +1331,17 @@
             }
 
             .hero {
-                padding: 50px 20px;
+                min-height: 520px;
+                padding: 56px 20px 48px;
+            }
+
+            .hero-subheading {
+                line-height: 1.65;
+                margin-bottom: 24px;
+            }
+
+            .hero-ctas {
+                margin-bottom: 28px;
             }
 
             section {
@@ -1462,7 +1475,7 @@
             
             <div class="highlights-content">
                 <figure class="highlights-image">
-                    <img src="images/hero-food.jpg" alt="Premium Indian dining spread at Kalinga Kitchen and Bar" loading="lazy">
+                    <img src="images/hero-food.jpg" alt="Premium Indian dining spread at Kalinga Kitchen and Bar" width="1800" height="933" loading="lazy" decoding="async">
                     <figcaption>Premium Indian flavours for family dinners and celebrations</figcaption>
                 </figure>
 
@@ -1505,7 +1518,7 @@
 
             <div class="menu-categories">
                 <div class="menu-category">
-                    <img class="menu-category-image" src="images/paneer.jpg" alt="Paneer tikka starter" loading="lazy">
+                    <img class="menu-category-image" src="images/paneer.jpg" alt="Paneer tikka starter" width="1400" height="726" loading="lazy" decoding="async">
                     <h4>Starters & Bar Bites</h4>
                     <div class="menu-items">
                         <div class="menu-item">Crispy Chicken Fritters</div>
@@ -1516,7 +1529,7 @@
                 </div>
 
                 <div class="menu-category">
-                    <img class="menu-category-image" src="images/biryani.jpg" alt="Special chicken biryani" loading="lazy">
+                    <img class="menu-category-image" src="images/biryani.jpg" alt="Special chicken biryani" width="1400" height="726" loading="lazy" decoding="async">
                     <h4>Biryani & Rice</h4>
                     <div class="menu-items">
                         <div class="menu-item">Special Chicken Biryani</div>
@@ -1527,7 +1540,7 @@
                 </div>
 
                 <div class="menu-category">
-                    <img class="menu-category-image" src="images/curry.jpg" alt="Indian curry with naan" loading="lazy">
+                    <img class="menu-category-image" src="images/curry.jpg" alt="Indian curry with naan" width="1400" height="726" loading="lazy" decoding="async">
                     <h4>Indian & Andhra Specials</h4>
                     <div class="menu-items">
                         <div class="menu-item">Butter Chicken</div>
@@ -1538,7 +1551,7 @@
                 </div>
 
                 <div class="menu-category">
-                    <img class="menu-category-image" src="images/hero-food.jpg" alt="Multi-cuisine restaurant table spread" loading="lazy">
+                    <img class="menu-category-image" src="images/hero-food.jpg" alt="Multi-cuisine restaurant table spread" width="1800" height="933" loading="lazy" decoding="async">
                     <h4>Chinese & Continental</h4>
                     <div class="menu-items">
                         <div class="menu-item">Hakka Noodles</div>
@@ -1549,7 +1562,7 @@
                 </div>
 
                 <div class="menu-category">
-                    <img class="menu-category-image" src="images/thali.jpg" alt="Vegetarian thali and sides" loading="lazy">
+                    <img class="menu-category-image" src="images/thali.jpg" alt="Vegetarian thali and sides" width="1400" height="726" loading="lazy" decoding="async">
                     <h4>Soups & Sides</h4>
                     <div class="menu-items">
                         <div class="menu-item">Vegetable Sweet Corn Soup</div>
@@ -1560,7 +1573,7 @@
                 </div>
 
                 <div class="menu-category">
-                    <img class="menu-category-image" src="images/mocktail.jpg" alt="Fresh mocktails and beverages" loading="lazy">
+                    <img class="menu-category-image" src="images/mocktail.jpg" alt="Fresh mocktails and beverages" width="1400" height="726" loading="lazy" decoding="async">
                     <h4>Desserts & Beverages</h4>
                     <div class="menu-items">
                         <div class="menu-item">Gulab Jamun</div>
@@ -1591,27 +1604,27 @@
 
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="images/hero-food.jpg" alt="Restaurant-style dining spread" loading="lazy">
+                    <img src="images/hero-food.jpg" alt="Restaurant-style dining spread" width="1800" height="933" loading="lazy" decoding="async">
                     <span>Signature Dining Spread</span>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/biryani.jpg" alt="Chicken biryani served in a handi" loading="lazy">
+                    <img src="images/biryani.jpg" alt="Chicken biryani served in a handi" width="1400" height="726" loading="lazy" decoding="async">
                     <span>Special Chicken Biryani</span>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/paneer.jpg" alt="Paneer tikka starter with chutney" loading="lazy">
+                    <img src="images/paneer.jpg" alt="Paneer tikka starter with chutney" width="1400" height="726" loading="lazy" decoding="async">
                     <span>Paneer Tikka Starters</span>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/curry.jpg" alt="Indian curry served with naan" loading="lazy">
+                    <img src="images/curry.jpg" alt="Indian curry served with naan" width="1400" height="726" loading="lazy" decoding="async">
                     <span>Rich Indian Curries</span>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/thali.jpg" alt="Vegetarian thali with curries and rice" loading="lazy">
+                    <img src="images/thali.jpg" alt="Vegetarian thali with curries and rice" width="1400" height="726" loading="lazy" decoding="async">
                     <span>Family Thali Meals</span>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/mocktail.jpg" alt="Fresh mocktails on a restaurant table" loading="lazy">
+                    <img src="images/mocktail.jpg" alt="Fresh mocktails on a restaurant table" width="1400" height="726" loading="lazy" decoding="async">
                     <span>Mocktails & Beverages</span>
                 </div>
             </div>
