@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kalinga-website-eight.vercel.app/sitemap.xml
+Sitemap: https://kalinga-family-restaurant.vercel.app/sitemap.xml
