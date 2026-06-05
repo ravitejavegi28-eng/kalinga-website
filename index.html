@@ -1941,6 +1941,25 @@
         const API_BASE_URL = (window.KALINGA_API_BASE_URL || PRODUCTION_API_BASE_URL).replace(/\/$/, '');
 
         const formStatus = document.getElementById('formStatus');
+        const dateInput = document.getElementById('date');
+
+        function getTodayDateString() {
+            const now = new Date();
+            const localDate = new Date(now.getTime() - now.getTimezoneOffset() * 60000);
+
+            return localDate.toISOString().slice(0, 10);
+        }
+
+        function setMinimumBookingDate() {
+            const today = getTodayDateString();
+            dateInput.min = today;
+
+            if (!dateInput.value || dateInput.value < today) {
+                dateInput.value = today;
+            }
+        }
+
+        setMinimumBookingDate();
 
         function showFormStatus(type, message) {
             formStatus.textContent = message;
@@ -2048,6 +2067,10 @@
                     guests: document.getElementById('guests').value,
                     message: document.getElementById('message').value
                 };
+
+                if (formData.date < getTodayDateString()) {
+                    throw new Error('Please choose today or a future date for your reservation.');
+                }
 
                 const data = await sendBookingRequest(formData);
                 
