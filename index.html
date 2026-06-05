@@ -8,7 +8,6 @@
     <meta name="keywords" content="Kalinga Kitchen and Bar, Kalinga restaurant Rajamahendravaram, restaurant in Rajahmundry, biryani Rajamahendravaram, family restaurant Rajamahendravaram, Andhra food, Chinese food, bar and restaurant, table booking Rajamahendravaram">
     <meta name="author" content="Kalinga Kitchen & Bar">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#8B6F47">
     <link rel="canonical" href="https://kalinga-family-restaurant.vercel.app/">
     <meta property="og:type" content="restaurant">
     <meta property="og:locale" content="en_IN">
@@ -684,6 +683,11 @@
             margin-top: 32px;
         }
 
+        .menu-cta-text {
+            margin-bottom: 16px;
+            color: #2C1810;
+        }
+
         /* ============================================
            AMBIENCE SECTION
            ============================================ */
@@ -753,6 +757,12 @@
             font-weight: 700;
             color: #2C1810;
             background: #FFFFFF;
+        }
+
+        .ambience-note {
+            text-align: center;
+            color: #64748B;
+            margin-top: 32px;
         }
 
         @media (max-width: 768px) {
@@ -962,10 +972,19 @@
             line-height: 1.6;
         }
 
+        .location-note {
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
+
         .phone-link {
             color: #8B6F47;
             font-weight: 600;
             font-size: 1.1rem;
+        }
+
+        .directions-button {
+            display: inline-block;
         }
 
         .map-placeholder {
@@ -980,6 +999,29 @@
             padding: 20px;
             box-shadow: 0 4px 12px rgba(44, 24, 16, 0.15);
             border: 1px solid #D4A574;
+        }
+
+        .map-content {
+            text-align: center;
+        }
+
+        .map-icon {
+            font-size: 2.5rem;
+            margin-bottom: 18px;
+        }
+
+        .map-title {
+            color: #fff;
+            font-size: 1.15rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .map-note {
+            color: #fff;
+            font-size: 1rem;
+            margin-top: 16px;
+            opacity: 0.95;
         }
 
         @media (max-width: 768px) {
@@ -1268,6 +1310,10 @@
             margin-top: 16px;
         }
 
+        .footer-follow-text {
+            margin-bottom: 16px;
+        }
+
         .social-links a {
             display: inline-flex;
             align-items: center;
@@ -1295,6 +1341,10 @@
             text-align: center;
             color: rgba(255, 255, 255, 0.65);
             font-size: 0.85rem;
+        }
+
+        .footer-legal-link {
+            color: #D4A574;
         }
 
         /* ============================================
@@ -1585,7 +1635,7 @@
             </div>
 
             <div class="menu-cta">
-                <p style="margin-bottom: 16px; color: #2C1810;">Want to explore more dishes?</p>
+                <p class="menu-cta-text">Want to explore more dishes?</p>
                 <a href="https://www.swiggy.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Order Online</a>
             </div>
         </div>
@@ -1629,7 +1679,7 @@
                 </div>
             </div>
 
-            <p style="text-align: center; color: #64748B; margin-top: 32px;">
+            <p class="ambience-note">
                 Whether you're celebrating a milestone, catching up with friends, or enjoying a weeknight dinner with family – Kalinga is the perfect backdrop for your moments.
             </p>
         </div>
@@ -1750,25 +1800,25 @@
                     <div class="location-item">
                         <h4>📞 Phone</h4>
                         <p><a href="tel:08985222336" class="phone-link">089852 22336</a></p>
-                        <p style="font-size: 0.85rem; margin-top: 8px;">Tap to call or WhatsApp your order</p>
+                        <p class="location-note">Tap to call or WhatsApp your order</p>
                     </div>
 
                     <div class="location-item">
                         <h4>⏰ Hours</h4>
                         <p>Open Every Day<br>11:00 AM – 12:00 AM</p>
-                        <p style="font-size: 0.85rem; margin-top: 8px;">Lunch, dinner, and late-night bites</p>
+                        <p class="location-note">Lunch, dinner, and late-night bites</p>
                     </div>
 
                     <div class="location-item">
-                        <a href="https://maps.google.com/?q=Kalinga+Kitchen+Bar+Rajamahendravaram" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-block;">Get Directions</a>
+                        <a href="https://maps.google.com/?q=Kalinga+Kitchen+Bar+Rajamahendravaram" target="_blank" rel="noopener noreferrer" class="btn btn-primary directions-button">Get Directions</a>
                     </div>
                 </div>
 
                 <div class="map-placeholder">
-                        <div style="text-align: center;">
-                            <div style="font-size: 2.5rem; margin-bottom: 18px;">📍</div>
-                            <p style="color: #fff; font-size: 1.15rem; font-weight: 600; letter-spacing: 0.5px;">Located opposite Jetty Grand, Rajamahendravaram</p>
-                            <p style="font-size: 1rem; margin-top: 16px; color: #fff; opacity: 0.95;">Click <b>Get Directions</b> to navigate on Google Maps</p>
+                        <div class="map-content">
+                            <div class="map-icon">📍</div>
+                            <p class="map-title">Located opposite Jetty Grand, Rajamahendravaram</p>
+                            <p class="map-note">Click <b>Get Directions</b> to navigate on Google Maps</p>
                         </div>
                 </div>
             </div>
@@ -1899,7 +1949,7 @@
 
                 <div class="footer-section">
                     <h4>Follow Us</h4>
-                    <p style="margin-bottom: 16px;">Stay updated with our latest specials and food stories.</p>
+                    <p class="footer-follow-text">Stay updated with our latest specials and food stories.</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" title="Facebook">f</a>
                         <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" title="Instagram">📷</a>
@@ -1910,7 +1960,7 @@
 
             <div class="footer-divider">
                 <div class="footer-bottom">
-                    <p>&copy; 2026 Kalinga Kitchen & Bar. All rights reserved. | <a href="#" style="color: #D4A574;">Privacy Policy</a> | <a href="#" style="color: #D4A574;">Terms of Service</a></p>
+                    <p>&copy; 2026 Kalinga Kitchen & Bar. All rights reserved. | <a href="#" class="footer-legal-link">Privacy Policy</a> | <a href="#" class="footer-legal-link">Terms of Service</a></p>
                 </div>
             </div>
         </div>
