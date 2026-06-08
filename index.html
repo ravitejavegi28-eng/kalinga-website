@@ -987,41 +987,19 @@
             display: inline-block;
         }
 
-        .map-placeholder {
-            background: linear-gradient(135deg, #8B6F47 0%, #6B5534 100%);
-            border-radius: 0;
+        .map-embed-wrap {
             min-height: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #FFFFFF;
-            text-align: center;
-            padding: 20px;
+            overflow: hidden;
+            background: #FFFFFF;
             box-shadow: 0 4px 12px rgba(44, 24, 16, 0.15);
             border: 1px solid #D4A574;
         }
 
-        .map-content {
-            text-align: center;
-        }
-
-        .map-icon {
-            font-size: 2.5rem;
-            margin-bottom: 18px;
-        }
-
-        .map-title {
-            color: #fff;
-            font-size: 1.15rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .map-note {
-            color: #fff;
-            font-size: 1rem;
-            margin-top: 16px;
-            opacity: 0.95;
+        .map-embed {
+            display: block;
+            width: 100%;
+            min-height: 350px;
+            border: 0;
         }
 
         @media (max-width: 768px) {
@@ -1030,8 +1008,9 @@
                 gap: 32px;
             }
 
-            .map-placeholder {
-                min-height: 250px;
+            .map-embed-wrap,
+            .map-embed {
+                min-height: 280px;
             }
         }
 
@@ -1814,12 +1793,15 @@
                     </div>
                 </div>
 
-                <div class="map-placeholder">
-                        <div class="map-content">
-                            <div class="map-icon">📍</div>
-                            <p class="map-title">Located opposite Jetty Grand, Rajamahendravaram</p>
-                            <p class="map-note">Click <b>Get Directions</b> to navigate on Google Maps</p>
-                        </div>
+                <div class="map-embed-wrap">
+                    <iframe
+                        class="map-embed"
+                        title="Kalinga Kitchen and Bar location map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3815.5409411863657!2d81.77020777500096!3d16.997116283825136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37a5f6f24430c9%3A0x204863d051da278e!2sKalinga%20Kitchen%20and%20Bar!5e0!3m2!1sen!2sin!4v1780906916814!5m2!1sen!2sin"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </div>
