@@ -228,12 +228,17 @@
         }
 
         .navbar-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            width: 150px;
+            flex-shrink: 0;
             color: #8B6F47;
-            white-space: nowrap;
-            letter-spacing: -0.3px;
+        }
+
+        .navbar-logo svg {
+            display: block;
+            width: 100%;
+            height: auto;
         }
 
         .navbar-menu {
@@ -323,40 +328,6 @@
             .menu-toggle {
                 display: none;
             }
-        }
-
-        /* ============================================
-           LOGO SECTION
-           ============================================ */
-        .logo-section {
-            background: linear-gradient(to bottom, #FFFFFF, #FFFAF6);
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 1px solid #E8DCD4;
-        }
-
-        .logo-container {
-            max-width: 400px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .logo-image {
-            max-width: 100%;
-            height: auto;
-            max-height: 150px;
-            filter: drop-shadow(0 4px 8px rgba(44, 24, 16, 0.1));
-        }
-
-        .logo-tagline {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            color: #8B6F47;
-            font-weight: 600;
-            letter-spacing: 1px;
         }
 
         /* ============================================
@@ -1348,7 +1319,7 @@
 
         @media (max-width: 480px) {
             .navbar-logo {
-                font-size: 1.1rem;
+                width: 122px;
             }
 
             h1 {
@@ -1415,7 +1386,31 @@
          ============================================ -->
     <nav>
         <div class="navbar-container">
-            <div class="navbar-logo">Kalinga</div>
+            <a href="#home" class="navbar-logo" aria-label="Kalinga home">
+                <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kalinga Veg Gourmet Kitchen">
+                    <g transform="translate(200, 55)">
+                        <circle cx="0" cy="0" r="42" fill="none" stroke="#8B6F47" stroke-width="3"/>
+                        <circle cx="0" cy="0" r="8" fill="#8B6F47"/>
+                        <line x1="0" y1="-42" x2="0" y2="-10" stroke="#8B6F47" stroke-width="2"/>
+                        <line x1="0" y1="42" x2="0" y2="10" stroke="#8B6F47" stroke-width="2"/>
+                        <line x1="-42" y1="0" x2="-10" y2="0" stroke="#8B6F47" stroke-width="2"/>
+                        <line x1="42" y1="0" x2="10" y2="0" stroke="#8B6F47" stroke-width="2"/>
+                        <line x1="-30" y1="-30" x2="-7" y2="-7" stroke="#8B6F47" stroke-width="2"/>
+                        <line x1="30" y1="30" x2="7" y2="7" stroke="#8B6F47" stroke-width="2"/>
+                        <line x1="30" y1="-30" x2="7" y2="-7" stroke="#8B6F47" stroke-width="2"/>
+                        <line x1="-30" y1="30" x2="-7" y2="7" stroke="#8B6F47" stroke-width="2"/>
+                        <circle cx="0" cy="-42" r="5" fill="#8B6F47"/>
+                        <circle cx="42" cy="0" r="5" fill="#8B6F47"/>
+                        <circle cx="0" cy="42" r="5" fill="#8B6F47"/>
+                        <circle cx="-42" cy="0" r="5" fill="#8B6F47"/>
+                        <circle cx="0" cy="0" r="28" fill="none" stroke="#D4A574" stroke-width="1"/>
+                    </g>
+                    <text x="200" y="150" font-size="56" font-weight="bold" font-family="'Playfair Display', serif" text-anchor="middle" fill="#2C1810">KALINGA</text>
+                    <line x1="80" y1="165" x2="150" y2="165" stroke="#8B6F47" stroke-width="2"/>
+                    <line x1="250" y1="165" x2="320" y2="165" stroke="#8B6F47" stroke-width="2"/>
+                    <text x="200" y="195" font-size="14" font-family="'Poppins', sans-serif" text-anchor="middle" fill="#8B6F47" letter-spacing="1.5">Veg Gourmet Kitchen</text>
+                </svg>
+            </a>
             <button class="menu-toggle" id="menuToggle" type="button" aria-controls="navMenu" aria-expanded="false" aria-label="Open menu">☰</button>
             <ul class="navbar-menu" id="navMenu">
                 <li><a href="#home">Home</a></li>
@@ -1430,50 +1425,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- ============================================
-         LOGO SECTION
-         ============================================ -->
-    <section class="logo-section">
-        <div class="logo-container">
-            <!-- Kalinga Logo -->
-            <svg class="logo-image" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
-                <!-- Ship's Steering Wheel at top -->
-                <g id="ship-wheel" transform="translate(200, 55)">
-                    <!-- Outer rim -->
-                    <circle cx="0" cy="0" r="42" fill="none" stroke="#8B6F47" stroke-width="3"/>
-                    <!-- Center hub -->
-                    <circle cx="0" cy="0" r="8" fill="#8B6F47"/>
-                    <!-- 8 spokes -->
-                    <line x1="0" y1="-42" x2="0" y2="-10" stroke="#8B6F47" stroke-width="2"/>
-                    <line x1="0" y1="42" x2="0" y2="10" stroke="#8B6F47" stroke-width="2"/>
-                    <line x1="-42" y1="0" x2="-10" y2="0" stroke="#8B6F47" stroke-width="2"/>
-                    <line x1="42" y1="0" x2="10" y2="0" stroke="#8B6F47" stroke-width="2"/>
-                    <line x1="-30" y1="-30" x2="-7" y2="-7" stroke="#8B6F47" stroke-width="2"/>
-                    <line x1="30" y1="30" x2="7" y2="7" stroke="#8B6F47" stroke-width="2"/>
-                    <line x1="30" y1="-30" x2="7" y2="-7" stroke="#8B6F47" stroke-width="2"/>
-                    <line x1="-30" y1="30" x2="-7" y2="7" stroke="#8B6F47" stroke-width="2"/>
-                    <!-- Grip handles (4 main handles) -->
-                    <circle cx="0" cy="-42" r="5" fill="#8B6F47"/>
-                    <circle cx="42" cy="0" r="5" fill="#8B6F47"/>
-                    <circle cx="0" cy="42" r="5" fill="#8B6F47"/>
-                    <circle cx="-42" cy="0" r="5" fill="#8B6F47"/>
-                    <!-- Inner decorative ring -->
-                    <circle cx="0" cy="0" r="28" fill="none" stroke="#D4A574" stroke-width="1"/>
-                </g>
-                
-                <!-- Text: KALINGA -->
-                <text x="200" y="150" font-size="56" font-weight="bold" font-family="'Playfair Display', serif" text-anchor="middle" fill="#2C1810">KALINGA</text>
-                
-                <!-- Decorative lines -->
-                <line x1="80" y1="165" x2="150" y2="165" stroke="#8B6F47" stroke-width="2"/>
-                <line x1="250" y1="165" x2="320" y2="165" stroke="#8B6F47" stroke-width="2"/>
-                
-                <!-- Tagline: Veg Gourmet Kitchen -->
-                <text x="200" y="195" font-size="14" font-family="'Poppins', sans-serif" text-anchor="middle" fill="#8B6F47" letter-spacing="1.5">Veg Gourmet Kitchen</text>
-            </svg>
-        </div>
-    </section>
 
     <!-- ============================================
          HERO SECTION
