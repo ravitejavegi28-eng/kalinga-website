@@ -706,6 +706,72 @@
             color: #2C1810;
         }
 
+        @media (max-width: 768px) {
+            .menu-intro {
+                margin-bottom: 28px;
+            }
+
+            .menu-categories {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px;
+                margin-bottom: 32px;
+            }
+
+            .menu-category {
+                border-left-width: 3px;
+                border-radius: 6px;
+            }
+
+            .menu-category-image {
+                height: 118px;
+            }
+
+            .menu-category h4 {
+                margin-top: 14px;
+                margin-bottom: 10px;
+                padding: 0 12px;
+                font-size: 0.78rem;
+                line-height: 1.25;
+                letter-spacing: 0.5px;
+                overflow-wrap: anywhere;
+            }
+
+            .menu-items {
+                gap: 4px;
+                padding: 0 12px 14px;
+            }
+
+            .menu-item {
+                font-size: 0.72rem;
+                line-height: 1.35;
+                padding: 5px 0 7px;
+                overflow-wrap: anywhere;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .menu-categories {
+                gap: 10px;
+            }
+
+            .menu-category-image {
+                height: 96px;
+            }
+
+            .menu-category h4 {
+                padding: 0 10px;
+                font-size: 0.7rem;
+            }
+
+            .menu-items {
+                padding: 0 10px 12px;
+            }
+
+            .menu-item {
+                font-size: 0.66rem;
+            }
+        }
+
         /* ============================================
            AMBIENCE SECTION
            ============================================ */
