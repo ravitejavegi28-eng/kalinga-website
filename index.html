@@ -1214,9 +1214,9 @@
             flex-direction: column;
         }
 
-        .date-picker-field,
-        .date-picker-field label,
-        .date-picker-field input {
+        .picker-field,
+        .picker-field label,
+        .picker-field input {
             cursor: pointer;
         }
 
@@ -2007,11 +2007,11 @@
                     </div>
 
                     <div class="form-group-row">
-                        <div class="form-group date-picker-field">
+                        <div class="form-group picker-field">
                             <label for="date">Date *</label>
                             <input type="date" id="date" name="date" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group picker-field">
                             <label for="time">Time *</label>
                             <input type="time" id="time" name="time" required>
                         </div>
@@ -2154,6 +2154,7 @@
 
         const formStatus = document.getElementById('formStatus');
         const dateInput = document.getElementById('date');
+        const timeInput = document.getElementById('time');
 
         function getTodayDateString() {
             const now = new Date();
@@ -2173,7 +2174,7 @@
 
         setMinimumBookingDate();
 
-        function openDatePicker(input) {
+        function openNativePicker(input) {
             input.focus({ preventScroll: true });
 
             if (typeof input.showPicker === 'function') {
@@ -2185,21 +2186,22 @@
             }
         }
 
-        function connectDatePickerField(input) {
-            const field = input.closest('.date-picker-field');
+        function connectPickerField(input) {
+            const field = input.closest('.picker-field');
 
-            input.addEventListener('click', () => openDatePicker(input));
+            input.addEventListener('click', () => openNativePicker(input));
 
             if (field) {
                 field.addEventListener('click', (event) => {
                     if (event.target !== input) {
-                        openDatePicker(input);
+                        openNativePicker(input);
                     }
                 });
             }
         }
 
-        connectDatePickerField(dateInput);
+        connectPickerField(dateInput);
+        connectPickerField(timeInput);
 
         function showFormStatus(type, message) {
             formStatus.textContent = message;
