@@ -1080,6 +1080,40 @@
             display: inline-block;
         }
 
+        .location-actions,
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .location-actions .btn,
+        .contact-actions .btn {
+            display: inline-flex;
+            align-items: center;
+            min-width: 132px;
+            justify-content: center;
+        }
+
+        .trust-strip {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 28px;
+            margin-bottom: 28px;
+        }
+
+        .trust-pill {
+            border: 1px solid #E8DCD4;
+            background: #FFFFFF;
+            padding: 12px 14px;
+            color: #2C1810;
+            font-size: 0.9rem;
+            font-weight: 700;
+            box-shadow: 0 8px 18px rgba(44, 24, 16, 0.06);
+        }
+
         .map-embed-wrap {
             min-height: 350px;
             overflow: hidden;
@@ -1104,6 +1138,10 @@
             .map-embed-wrap,
             .map-embed {
                 min-height: 280px;
+            }
+
+            .trust-strip {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1924,6 +1962,10 @@
                         <h4>📞 Phone</h4>
                         <p><a href="tel:08985222336" class="phone-link">089852 22336</a></p>
                         <p class="location-note">Tap to call or WhatsApp your order</p>
+                        <div class="location-actions" aria-label="Restaurant contact actions">
+                            <a href="tel:08985222336" class="btn btn-primary btn-sm">Call Now</a>
+                            <a href="https://wa.me/918985222336" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">WhatsApp</a>
+                        </div>
                     </div>
 
                     <div class="location-item">
@@ -1961,6 +2003,18 @@
             <div class="contact-content">
                 <div class="contact-text">
                     <p>Planning a family dinner, friends' meetup, or a casual evening out? Reserve a table, call us to place your order, or fill the form to send us a reservation request.</p>
+
+                    <div class="contact-actions" aria-label="Quick restaurant actions">
+                        <a href="tel:08985222336" class="btn btn-primary btn-sm">Call Restaurant</a>
+                        <a href="https://wa.me/918985222336" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">WhatsApp</a>
+                        <a href="https://maps.google.com/?q=Kalinga+Kitchen+Bar+Rajamahendravaram" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">Directions</a>
+                    </div>
+
+                    <div class="trust-strip" aria-label="Restaurant trust highlights">
+                        <div class="trust-pill">Family restaurant in Rajamahendravaram</div>
+                        <div class="trust-pill">Open daily 10:00 AM - 11:59 PM</div>
+                        <div class="trust-pill">Call support for urgent bookings</div>
+                    </div>
 
                     <div class="contact-methods">
                         <div class="contact-method">
