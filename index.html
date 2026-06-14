@@ -85,8 +85,8 @@
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "4.6",
-            "reviewCount": "1800"
+            "ratingValue": "3.9",
+            "reviewCount": "1034"
         },
         "potentialAction": {
             "@type": "ReserveAction",
@@ -950,6 +950,10 @@
             transform: translateY(-4px);
         }
 
+        .review-card.source-card::before {
+            display: none;
+        }
+
         .review-stars {
             color: #D4A574;
             font-size: 0.9rem;
@@ -969,6 +973,49 @@
             font-weight: 600;
             color: #8B6F47;
             font-size: 0.85rem;
+        }
+
+        .review-source-label {
+            display: inline-flex;
+            width: fit-content;
+            margin-bottom: 16px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #F5F0EB;
+            color: #8B6F47;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .review-source-rating {
+            color: #2C1810;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .review-source-title {
+            color: #2C1810;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .review-source-note {
+            color: #64748B;
+            margin-bottom: 16px;
+        }
+
+        .review-source-list {
+            display: grid;
+            gap: 8px;
+            margin: 16px 0 20px;
+            padding-left: 18px;
+            color: #6B5B4F;
+            line-height: 1.6;
         }
 
         .reviews-footer {
@@ -1687,7 +1734,7 @@
             </div>
             <div class="hero-badges">
                 <div class="hero-badge">
-                    <span class="stars">★ 4.6</span> <span>4.6★ Rating • 1,800+ Reviews</span>
+                    <span class="stars">★ 3.9</span> <span>Justdial rating • 1,034 public ratings</span>
                 </div>
                 <div class="hero-badge">👨‍👩‍👧‍👦 Family-Friendly • Dine-in • No-Contact Delivery</div>
             </div>
@@ -1873,39 +1920,52 @@
             </div>
 
             <div class="overall-rating">
-                <div class="rating-number">4.6</div>
+                <div class="rating-number">3.9</div>
                 <div class="rating-stars">★ ★ ★ ★ ☆</div>
-                <div class="rating-count">Based on 1,800+ diner reviews</div>
+                <div class="rating-count">Justdial rating based on 1,034 public ratings</div>
             </div>
 
             <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-stars">★ ★ ★ ★ ★</div>
-                    <p class="review-quote">"The biryani here is absolutely delicious. We come back every month. The staff is always friendly and the service is quick. Highly recommended!"</p>
-                    <div class="review-author">— Rajesh K.</div>
+                <div class="review-card source-card">
+                    <div class="review-source-label">Justdial</div>
+                    <div class="review-source-rating">3.9★</div>
+                    <div class="review-source-title">1,034 public ratings</div>
+                    <p class="review-source-note">Public Justdial review insights mention ambience, selected dishes, and staff hospitality as common positives.</p>
+                    <ul class="review-source-list">
+                        <li>Good ambience mentioned by many customers</li>
+                        <li>Gongura chicken and ulavacharu biryani praised by some reviewers</li>
+                        <li>Hospitality and service appreciated in review insights</li>
+                    </ul>
+                    <a href="https://www.justdial.com/Rajahmundry/Kalinga-Restaurant-Bar-Opp-jettygrandbeside-askshaya-residency-Innes-Peta/9999PX883-X883-1234868530D6I2D9-DC_BZDET/reviews" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">Read on Justdial</a>
                 </div>
 
-                <div class="review-card">
-                    <div class="review-stars">★ ★ ★ ★ ★</div>
-                    <p class="review-quote">"Perfect place for family dinners. Great food, good ambiance, and the prices are very reasonable. We had Chinese starters and they were crispy and tasty."</p>
-                    <div class="review-author">— Priya M.</div>
+                <div class="review-card source-card">
+                    <div class="review-source-label">Google Maps</div>
+                    <div class="review-source-rating">Reviews</div>
+                    <div class="review-source-title">See latest customer feedback</div>
+                    <p class="review-source-note">Open the Google Maps listing to read the latest live Google reviews, directions, photos, and customer updates.</p>
+                    <a href="https://maps.google.com/?q=Kalinga+Kitchen+Bar+Rajamahendravaram" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">Read on Google</a>
                 </div>
 
-                <div class="review-card">
-                    <div class="review-stars">★ ★ ★ ★ ★</div>
-                    <p class="review-quote">"Visited with colleagues after office. The bar snacks, fried rice, and chilli chicken were all excellent. Loved the no-fuss service and warm welcome."</p>
-                    <div class="review-author">— Anil S.</div>
+                <div class="review-card source-card">
+                    <div class="review-source-label">Zomato</div>
+                    <div class="review-source-rating">3.4★</div>
+                    <div class="review-source-title">3,110 delivery ratings</div>
+                    <p class="review-source-note">Zomato lists The Kalinga for Andhra, North Indian, Mughlai, Kebab, Chinese, and Seafood delivery in Rajahmundry.</p>
+                    <a href="https://www.zomato.com/rajahmundry/the-kalinga-rajahmundry-locality/reviews" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">Read on Zomato</a>
                 </div>
 
-                <div class="review-card">
-                    <div class="review-stars">★ ★ ★ ★ ☆</div>
-                    <p class="review-quote">"Had a great celebration here. Good food, decent bar options, and the team made us feel special. Would definitely come back for more."</p>
-                    <div class="review-author">— Divya N.</div>
+                <div class="review-card source-card">
+                    <div class="review-source-label">Balanced Reviews</div>
+                    <div class="review-source-rating">Real</div>
+                    <div class="review-source-title">Verified source links</div>
+                    <p class="review-source-note">This section uses public review sources and links customers to the original platforms for full, current feedback.</p>
+                    <a href="#contact" class="btn btn-primary btn-sm">Book a Table</a>
                 </div>
             </div>
 
             <div class="reviews-footer">
-                <a href="#" class="btn btn-secondary">Read More Reviews</a>
+                <a href="https://www.justdial.com/Rajahmundry/Kalinga-Restaurant-Bar-Opp-jettygrandbeside-askshaya-residency-Innes-Peta/9999PX883-X883-1234868530D6I2D9-DC_BZDET/reviews" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Read More Reviews</a>
             </div>
         </div>
     </section>
@@ -1928,8 +1988,8 @@
                     <div class="about-highlight-item">
                         <div class="about-highlight-icon">⭐</div>
                         <div class="about-highlight-text">
-                            <h4>4.6★ Diner Rating</h4>
-                            <p>Trusted by over 1,800 satisfied diners</p>
+                            <h4>3.9★ Justdial Rating</h4>
+                            <p>Based on 1,034 public Justdial ratings</p>
                         </div>
                     </div>
 
