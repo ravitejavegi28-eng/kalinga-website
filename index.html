@@ -1129,7 +1129,7 @@
             border: 0;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .location-content {
                 grid-template-columns: 1fr;
                 gap: 32px;
@@ -1142,6 +1142,16 @@
 
             .trust-strip {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .location-info {
+                padding: 24px;
+            }
+
+            .location-actions .btn {
+                width: 100%;
             }
         }
 
