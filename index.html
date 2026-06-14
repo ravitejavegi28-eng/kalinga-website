@@ -111,6 +111,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 96px;
         }
 
         body {
@@ -217,11 +218,17 @@
 
         section {
             padding: 60px 20px;
+            scroll-margin-top: 96px;
         }
 
         @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 170px;
+            }
+
             section {
                 padding: 40px 20px;
+                scroll-margin-top: 170px;
             }
         }
 
