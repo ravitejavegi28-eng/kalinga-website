@@ -94,11 +94,12 @@
         }
     }
     </script>
-    <link rel="preload" as="image" href="images/hero-food.jpg" media="(min-width: 769px)">
-    <link rel="preload" as="image" href="images/hero-food-mobile.jpg" media="(max-width: 768px)">
+    <link rel="preload" as="image" href="images/hero-food-mobile.jpg" media="(max-width: 768px)" fetchpriority="high">
+    <link rel="preload" as="image" href="images/hero-food.jpg" media="(min-width: 769px)" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <style>
         /* ============================================
            RESET & BASE STYLES
@@ -219,6 +220,17 @@
         section {
             padding: 60px 20px;
             scroll-margin-top: 96px;
+        }
+
+        .highlights,
+        .menu,
+        .ambience,
+        .reviews,
+        .about,
+        .location,
+        .contact {
+            content-visibility: auto;
+            contain-intrinsic-size: 1px 900px;
         }
 
         @media (max-width: 768px) {
@@ -366,9 +378,7 @@
            HERO SECTION
            ============================================ */
         .hero {
-            background:
-                linear-gradient(90deg, rgba(26, 15, 8, 0.88) 0%, rgba(44, 24, 16, 0.68) 48%, rgba(44, 24, 16, 0.28) 100%),
-                url('images/hero-food.jpg') center/cover;
+            background: #2C1810;
             color: #FFFFFF;
             min-height: 640px;
             padding: 96px 20px 72px;
@@ -379,11 +389,30 @@
         }
 
         .hero::before {
+            display: none;
+        }
+
+        .hero-media {
+            position: absolute;
+            inset: 0;
+            display: block;
+            z-index: 0;
+        }
+
+        .hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-media::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(26, 15, 8, 0.18), rgba(26, 15, 8, 0.6));
-            z-index: 0;
+            background:
+                linear-gradient(90deg, rgba(26, 15, 8, 0.88) 0%, rgba(44, 24, 16, 0.68) 48%, rgba(44, 24, 16, 0.28) 100%),
+                linear-gradient(180deg, rgba(26, 15, 8, 0.18), rgba(26, 15, 8, 0.6));
         }
         
         .hero::after {
@@ -401,7 +430,7 @@
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .hero-content > * {
@@ -486,9 +515,12 @@
             .hero {
                 min-height: 560px;
                 padding: 72px 20px 56px;
+            }
+
+            .hero-media::after {
                 background:
                     linear-gradient(90deg, rgba(26, 15, 8, 0.9) 0%, rgba(44, 24, 16, 0.72) 54%, rgba(44, 24, 16, 0.34) 100%),
-                    url('images/hero-food-mobile.jpg') center/cover;
+                    linear-gradient(180deg, rgba(26, 15, 8, 0.18), rgba(26, 15, 8, 0.6));
             }
 
             .hero-ctas {
@@ -1798,10 +1830,16 @@
         </div>
     </nav>
 
+    <main id="main-content">
+
     <!-- ============================================
          HERO SECTION
          ============================================ -->
     <section class="hero" id="home">
+        <picture class="hero-media" aria-hidden="true">
+            <source media="(max-width: 768px)" srcset="images/hero-food-mobile.jpg">
+            <img src="images/hero-food.jpg" alt="" width="1800" height="933" loading="eager" decoding="async" fetchpriority="high">
+        </picture>
         <div class="hero-content">
             <h1>Great Food, Good Times, at Kalinga</h1>
             <p class="hero-subheading">A multi-cuisine family restaurant & bar in the heart of Rajamahendravaram, serving Chinese, biryani, Indian and Andhra favourites in a warm, lively ambience.</p>
@@ -2252,6 +2290,8 @@
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- ============================================
          FOOTER
