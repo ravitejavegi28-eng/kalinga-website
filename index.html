@@ -94,8 +94,9 @@
         }
     }
     </script>
-    <link rel="preload" as="image" href="images/hero-food-mobile-lcp.jpg" media="(max-width: 768px)" fetchpriority="high">
-    <link rel="preload" as="image" href="images/hero-food-lcp.jpg" media="(min-width: 769px)" fetchpriority="high">
+    <link rel="preload" as="image" href="images/hero-food-mobile-fast.jpg" media="(max-width: 480px)" fetchpriority="high">
+    <link rel="preload" as="image" href="images/hero-food-mobile-lcp.jpg" media="(min-width: 481px) and (max-width: 768px)" fetchpriority="high">
+    <link rel="preload" as="image" href="images/hero-food-fast.jpg" media="(min-width: 769px)" fetchpriority="high">
     <style>
         /* ============================================
            RESET & BASE STYLES
@@ -1833,8 +1834,9 @@
          ============================================ -->
     <section class="hero" id="home">
         <picture class="hero-media" aria-hidden="true">
+            <source media="(max-width: 480px)" srcset="images/hero-food-mobile-fast.jpg">
             <source media="(max-width: 768px)" srcset="images/hero-food-mobile-lcp.jpg">
-            <img src="images/hero-food-lcp.jpg" alt="" width="1400" height="726" loading="eager" decoding="async" fetchpriority="high">
+            <img src="images/hero-food-fast.jpg" alt="" width="1100" height="570" loading="eager" decoding="async" fetchpriority="high">
         </picture>
         <div class="hero-content">
             <h1>Great Food, Good Times, at Kalinga</h1>
